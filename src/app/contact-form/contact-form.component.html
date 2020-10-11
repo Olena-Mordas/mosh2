@@ -1,0 +1,45 @@
+<form #f="ngForm" (ngSubmit) = onSubmit(f)>
+    <div ngModelGroup="contact">
+        <div class="form-group">
+            <label for = "firstName">First name</label>
+            <input 
+                required 
+                minlength="2" 
+                ngModel 
+                name="firstName" type = "text" 
+                #firstName="ngModel" 
+                class = "form-control"/>
+            <div class="alert alert-danger" *ngIf = "firstName.touched && firstName.errors">
+                <div *ngIf = "firstName.errors.required">
+                    First name is required
+                </div>
+                <div *ngIf = "firstName.errors.minlength">
+                    Min length is 2 
+                </div>
+            </div>
+            
+        </div>
+    </div>
+   
+    <div class="form-group">
+        <label for="comment">Comment</label>
+        <textarea ngModel name="comment" cols="30" rows="10" class = "form-control"></textarea>
+    </div>
+    
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" ngModel name="isSubscribed"> Subscribe
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label for="contactMethod">Contact Method</label>
+        <select ngModel name="contactMethod" id="contactMethod" class="form-control">
+            <option value=""></option>
+            <option *ngFor="let method of contactMethods" [value]="method.id">{{method.name}}</option>
+        </select>
+    </div>
+    
+    <button class="btn btn-primary" [disabled] = "!f.valid"> Submit </button>
+    <p>{{f.value | json}}</p>
+</form>
