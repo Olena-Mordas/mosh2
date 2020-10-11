@@ -7,13 +7,17 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CourseFormComponent } from './course-form/course-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
+import { NewCourseComponent } from './new-course/new-course.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactFormComponent,
     CourseFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    NewCourseComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
